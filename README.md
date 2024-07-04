@@ -6,10 +6,7 @@
 
 ### Utilisation de Python Virtual Env
 ```sh
-python3 -m venv venv
-```
-```sh
-source ./env/bin/activate
+python3 -m venv venv && source ./venv/bin/activate
 ```
 
 ### Installation des dépendances
