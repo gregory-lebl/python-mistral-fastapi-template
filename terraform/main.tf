@@ -62,7 +62,13 @@ resource "openstack_compute_instance_v2" "web-server" {
     name = "Ext-Net"
   }
 
+  provisioner "local-exec" {
+    command = ""
+  }
+}
 
+output "instance_ip" {
+  value = openstack_compute_instance_v2.web-server.network.0.fixed_ip_v4
 }
 
 
