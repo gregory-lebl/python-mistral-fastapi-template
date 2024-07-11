@@ -1,0 +1,5 @@
+- name: Installation de nginx
+  become: yes
+  apt:
+    name: nginx
+    state: latest

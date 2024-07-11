@@ -1,0 +1,8 @@
+- name: Installation du serveur
+  hosts: default
+  remote_user: debian
+  become: yes
+
+  roles:
+    - role: common
+    - role: nginx
