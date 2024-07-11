@@ -1,0 +1,17 @@
+- name: Mise à jour du système
+  become: yes
+  apt:
+    update_cache: yes
+    upgrade: yes
+
+- name: Installation des paquets de bases
+  become: yes
+  with_items:
+    - "curl"
+    - "git"
+    - "vim"
+    - "zip"
+    - "acl"
+  apt:
+    name: "{{ item }}"
+    state: latest

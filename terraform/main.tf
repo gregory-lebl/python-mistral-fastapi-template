@@ -63,7 +63,7 @@ resource "openstack_compute_instance_v2" "web-server" {
   }
 
   provisioner "local-exec" {
-    command = ""
+    command = "printf '[default]\n${self.network.0.fixed_ip_v4} ansible_ssh_user=debian ansible_ssh_private_key_file=~/.ssh/id_ed25519' >> ../ansible/hosts && ssh-keyscan ${self.network.0.fixed_ip_v4} >> ~/.ssh/known_hosts && cd ../ansible && ansible-playbook -i hosts playbook.yml"
   }
 }
 
