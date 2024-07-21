@@ -1,5 +1,5 @@
 - name: Installation du serveur
-  hosts: default
+  hosts: all
   remote_user: debian
   become: yes
 
