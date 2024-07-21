@@ -1,0 +1,5 @@
+- name: Installation de nvidia-cuda-toolkit
+  become: yes
+  apt:
+    name: nvidia-cuda-toolkit
+    state: latest

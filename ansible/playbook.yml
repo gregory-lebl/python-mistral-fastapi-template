@@ -6,3 +6,4 @@
   roles:
     - role: common
     - role: nginx
+    - role: nvidia
