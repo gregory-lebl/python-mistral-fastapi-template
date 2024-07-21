@@ -62,8 +62,19 @@ resource "openstack_compute_instance_v2" "web-server" {
     name = "Ext-Net"
   }
 
+  provisioner "remote-exec" {
+    inline = ["echo 'Wait until SSH is ready'"]
+
+    connection {
+      type        = "ssh"
+      user        = "debian"
+      private_key = file("~/.ssh/id_ed25519")
+      host        = self.network.0.fixed_ip_v4
+    }
+  }
+
   provisioner "local-exec" {
-    command = "printf '[default]\n${self.network.0.fixed_ip_v4} ansible_ssh_user=debian ansible_ssh_private_key_file=~/.ssh/id_ed25519' >> ../ansible/hosts && ssh-keyscan ${self.network.0.fixed_ip_v4} >> ~/.ssh/known_hosts && cd ../ansible && ansible-playbook -i hosts playbook.yml"
+    command = "cd ../ansible && ansible-playbook  -i ${self.network.0.fixed_ip_v4}, --private-key ~/.ssh/id_ed25519 playbook.yml"
   }
 }
 
