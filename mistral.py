@@ -8,7 +8,7 @@ from Prompt import Prompt
 
 
 def generate_text_with_mistral(prompt: Prompt):
-    mistral_models_path = Path.home().joinpath("Mistral-7B-Instruct-v0.3")
+    mistral_models_path = Path.cwd().joinpath("Mistral-7B-Instruct-v0.3")
 
     tokenizer = MistralTokenizer.from_file(
         f"{mistral_models_path}/tokenizer.model.v3")
