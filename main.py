@@ -1,6 +1,6 @@
 from typing import Union
 from fastapi import FastAPI
-from Prompt import Prompt
+from dto.Prompt import Prompt
 from mistral import generate_text_with_mistral
 
 app = FastAPI()

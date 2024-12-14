@@ -4,11 +4,11 @@ from mistral_common.tokens.tokenizers.mistral import MistralTokenizer
 from mistral_common.protocol.instruct.messages import UserMessage, SystemMessage
 from mistral_common.protocol.instruct.request import ChatCompletionRequest
 from pathlib import Path
-from Prompt import Prompt
+from dto.Prompt import Prompt
 
 
 def generate_text_with_mistral(prompt: Prompt):
-    mistral_models_path = Path.cwd().joinpath("Mistral-7B-Instruct-v0.3")
+    mistral_models_path = Path.cwd().joinpath("llm/Mistral-7B-Instruct-v0.3")
 
     tokenizer = MistralTokenizer.from_file(
         f"{mistral_models_path}/tokenizer.model.v3")
