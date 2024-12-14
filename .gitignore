@@ -217,3 +217,5 @@ terraform.rc
 # End of https://www.toptal.com/developers/gitignore/api/terraform
 
 openrc.sh
+Mistral-7B-Instruct-v0.3/
+vit-base-patch16-224/
